@@ -1,0 +1,27 @@
+section {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 30%;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 992px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 764px) {
+  section {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
