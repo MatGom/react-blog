@@ -1,0 +1,36 @@
+.postPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postPageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.postPageHeader {
+  margin-bottom: 0.3em;
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  font-weight: bold;
+}
+
+// .postPageBtn {
+//   margin-left: 0.5em;
+// }
+
+.postPageAuthor {
+  margin-bottom: -0.1em;
+}
+
+@media (max-width: 993px) {
+  .postPageWrapper {
+    width: 100%;
+  }
+}
