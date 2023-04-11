@@ -1,7 +1,8 @@
 import styles from './PostAddPage.module.scss';
 import PostAddForm from '../../features/PostAddForm/PostAddForm';
 
-const PostAddPage = () => {
+const PostAddPage = props => {
+  console.log(props);
   return (
     <article className={styles.postAddPage}>
       <div className={styles.postAddWrapper}>

@@ -14,7 +14,7 @@ const Posts = () => {
           <Card.Body>
             <Card.Title>{post.title}</Card.Title>
             <Card.Text>
-              <span className='fw-bold'>Author:</span> {post.title}
+              <span className='fw-bold'>Author:</span> {post.author}
             </Card.Text>
             <Card.Text>
               <span className='fw-bold'>Published:</span> {post.publishedDate}
