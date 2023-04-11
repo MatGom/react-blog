@@ -1,5 +1,15 @@
+import styles from './PostAddPage.module.scss';
+import PostAddForm from '../../features/PostAddForm/PostAddForm';
+
 const PostAddPage = () => {
-  return <h1>PostAddPage</h1>;
+  return (
+    <article className={styles.postAddPage}>
+      <div className={styles.postAddWrapper}>
+        <h2>Add post</h2>
+        <PostAddForm />
+      </div>
+    </article>
+  );
 };
 
 export default PostAddPage;
