@@ -1,11 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const PostForm = ({ action, actionText, ...props }) => {
-  const navigate = useNavigate();
-
   const [title, setTitle] = useState(props.title || '');
   const [author, setAuthor] = useState(props.author || '');
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
@@ -15,7 +12,6 @@ const PostForm = ({ action, actionText, ...props }) => {
   const handleSubmit = e => {
     e.preventDefault();
     action({ title, author, publishedDate, shortDescription, content });
-    navigate('/');
   };
 
   return (
@@ -73,7 +69,7 @@ const PostForm = ({ action, actionText, ...props }) => {
       </Form.Group>
 
       <Button variant='primary' type='submit' className='mb-3'>
-        {action.text}
+        {actionText}
       </Button>
     </Form>
   );
