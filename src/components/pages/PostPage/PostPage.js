@@ -43,7 +43,7 @@ const PostPage = () => {
           <div className={styles.postPageHeader}>
             <h2>{postData.title}</h2>
             <div>
-              <Link as={NavLink} to='/post/edit/:id' className='btn btn-outline-info px-3 ms-2'>
+              <Link as={NavLink} to={`/post/edit/${postData.id}`} className='btn btn-outline-info px-3 ms-2'>
                 Edit
               </Link>
               <Button onClick={handleShowModal} variant='outline-danger' className='px-3 ms-2'>
