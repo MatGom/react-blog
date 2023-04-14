@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import DeletePostModal from '../../features/DeletePostModal/DeletePostModal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { dateToStr } from '../../../utils/dateToStr';
 
 const PostPage = () => {
   const dispatch = useDispatch();
@@ -56,10 +57,10 @@ const PostPage = () => {
               <span>Author:</span> {postData.author}
             </p>
             <p>
-              <span>Published:</span> {postData.publishedDate}
+              <span>Published:</span> {dateToStr(postData.publishedDate)}
             </p>
           </div>
-          <p>{postData.content}</p>
+          <p dangerouslySetInnerHTML={{ __html: postData.content }} />
         </div>
       </article>
     );
