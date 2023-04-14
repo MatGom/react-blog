@@ -1,6 +1,6 @@
 # Link to Replit
 
-https://react-blog.mateuszgomolka.repl.co
+https://react-blog-1.mateuszgomolka.repl.co
 
 # Getting Started with Create React App
 
