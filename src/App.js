@@ -5,6 +5,8 @@ import HomePage from './components/pages/HomePage/HomePage';
 import PostPage from './components/pages/PostPage/PostPage';
 import PostAddPage from './components/pages/PostAddPage/PostAddPage';
 import PostEditPage from './components/pages/PostEditPage/PostEditPage';
+import CategoriesPage from './components/pages/CategoriesPage/CategoriesPage';
+import CategoryFilter from './components/features/CategoriesFilter/CategoriesFilter';
 import AboutPage from './components/pages/AboutPage/AboutPage';
 import NotFound from './components/pages/NotFound/NotFound';
 import Footer from './components/views/Footer/Footer';
@@ -19,6 +21,8 @@ function App() {
           <Route path='/post/:id' element={<PostPage />} />
           <Route path='/post/add' element={<PostAddPage />} />
           <Route path='/post/edit/:id' element={<PostEditPage />} />
+          <Route path='/categories' element={<CategoriesPage />} />
+          <Route path='/category/:category' element={<CategoryFilter />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

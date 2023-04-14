@@ -77,14 +77,16 @@ const PostForm = ({ action, actionText, ...props }) => {
           onChange={e => setCategory(e.target.value)}
           value={category}
           aria-label='Default select example'>
-          <option></option>
+          <option value='' disabled selected>
+            Select category...
+          </option>
           {categories.map((category, index) => (
             <option key={index} value={category}>
               {category}
             </option>
           ))}
         </Form.Select>
-        {errors.category && <small className='d-block form-text text-danger mt-2'>This field is required</small>}
+        {errors.category && <small className='d-block form-text text-danger mt-2'>Choose category</small>}
       </Form.Group>
 
       <Form.Group className='mb-3'>
