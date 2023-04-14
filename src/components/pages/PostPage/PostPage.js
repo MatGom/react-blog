@@ -56,8 +56,11 @@ const PostPage = () => {
             <p className={styles.postPageAuthor}>
               <span>Author:</span> {postData.author}
             </p>
-            <p>
+            <p className={styles.postPagePublished}>
               <span>Published:</span> {dateToStr(postData.publishedDate)}
+            </p>
+            <p>
+              <span>Category:</span> {postData.category}
             </p>
           </div>
           <p dangerouslySetInnerHTML={{ __html: postData.content }} />

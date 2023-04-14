@@ -30,6 +30,7 @@ const PostEditForm = () => {
         title={editedData.title}
         author={editedData.author}
         publishedDate={editedData.publishedDate}
+        categoryId={editedData.category}
         shortDescription={editedData.shortDescription}
         content={editedData.content}
         id={id}

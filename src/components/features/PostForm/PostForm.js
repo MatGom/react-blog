@@ -6,11 +6,16 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import { allCategories } from '../../../redux/categoriesRedux';
 
 const PostForm = ({ action, actionText, ...props }) => {
+  const categories = useSelector(allCategories);
+
   const [title, setTitle] = useState(props.title || '');
   const [author, setAuthor] = useState(props.author || '');
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
+  const [category, setCategory] = useState(props.categoryId || '');
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
   const [contentError, setContentError] = useState(false);
@@ -26,7 +31,7 @@ const PostForm = ({ action, actionText, ...props }) => {
     setContentError(!content);
     setDateError(!publishedDate);
     if (content && publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content });
+      action({ title, author, publishedDate, category, shortDescription, content });
     }
   };
 
@@ -62,6 +67,24 @@ const PostForm = ({ action, actionText, ...props }) => {
         <Form.Label>Published date</Form.Label>
         <DatePicker selected={publishedDate} onChange={date => setPublishedDate(date)} />
         {dateError && <small className='d-block form-text text-danger mt-2'>Choose date</small>}
+      </Form.Group>
+
+      <Form.Group className='mb-3'>
+        <Form.Label>Category</Form.Label>
+        <Form.Select
+          {...register('category', { required: true })}
+          as='select'
+          onChange={e => setCategory(e.target.value)}
+          value={category}
+          aria-label='Default select example'>
+          <option></option>
+          {categories.map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))}
+        </Form.Select>
+        {errors.category && <small className='d-block form-text text-danger mt-2'>This field is required</small>}
       </Form.Group>
 
       <Form.Group className='mb-3'>
