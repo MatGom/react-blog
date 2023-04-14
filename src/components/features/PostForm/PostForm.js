@@ -13,6 +13,8 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
+  const [contentError, setContentError] = useState(false);
+  const [dateError, setDateError] = useState(false);
 
   const {
     register,
@@ -20,8 +22,12 @@ const PostForm = ({ action, actionText, ...props }) => {
     formState: { errors },
   } = useForm();
 
-  const handleSubmit = e => {
-    action({ title, author, publishedDate, shortDescription, content });
+  const handleSubmit = () => {
+    setContentError(!content);
+    setDateError(!publishedDate);
+    if (content && publishedDate) {
+      action({ title, author, publishedDate, shortDescription, content });
+    }
   };
 
   return (
@@ -55,6 +61,7 @@ const PostForm = ({ action, actionText, ...props }) => {
       <Form.Group className='mb-3 w-50'>
         <Form.Label>Published date</Form.Label>
         <DatePicker selected={publishedDate} onChange={date => setPublishedDate(date)} />
+        {dateError && <small className='d-block form-text text-danger mt-2'>Choose date</small>}
       </Form.Group>
 
       <Form.Group className='mb-3'>
@@ -77,6 +84,7 @@ const PostForm = ({ action, actionText, ...props }) => {
       <Form.Group className='mb-3'>
         <Form.Label>Main content</Form.Label>
         <ReactQuill value={content} onChange={setContent} />
+        {contentError && <small className='d-block form-text text-danger mt-2'>Content can't be empty</small>}
       </Form.Group>
 
       <Button variant='primary' type='submit' className='mb-3'>
